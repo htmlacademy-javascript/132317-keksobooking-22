@@ -4,10 +4,6 @@ const getRandomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-console.log(getRandomInteger(0, 10));
-
-const getRandomFractionalInteger = (min, max, decimal_places) => {
-  return ((Math.random() * (max - min + 1)) + min).toFixed(decimal_places);
+const getRandomFloat = (min, max, decimalPlaces) => {
+  return ((Math.random() * (max - min + 1)) + min).toFixed(decimalPlaces);
 }
-
-console.log(getRandomFractionalInteger(0.1, 10.488, 3));
