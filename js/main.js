@@ -18,19 +18,19 @@ const OFFER_TYPE = [
   'palace',
   'flat',
   'house',
-  'bungalow'
+  'bungalow',
 ];
 
 const OFFER_CHECKIN = [
   '12:00',
   '13:00',
-  '14:00'
+  '14:00',
 ];
 
 const OFFER_CHECKOUT = [
   '12:00',
   '13:00',
-  '14:00'
+  '14:00',
 ];
 
 const OFFER_FEATURES = [
@@ -39,13 +39,13 @@ const OFFER_FEATURES = [
   'parking',
   'washer',
   'elevator',
-  'conditioner'
+  'conditioner',
 ];
 
 const OFFER_PHOTOS = [
   'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
   'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
-  'http://o0.github.io/assets/images/tokyo/hotel3.jpg'
+  'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
 ];
 
 const getRandomArrayElement = (elements) => {
@@ -60,12 +60,12 @@ const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
-  };
+  }
 
   return array;
 };
 
-getRandomTrimArray = (array) => {
+const getRandomTrimArray = (array) => {
   return array.slice(getRandomArraylength(array));
 };
 
@@ -73,6 +73,7 @@ const getRandomArray = (array) => {
   return getRandomTrimArray(shuffle(array));
 }
 
+// eslint-disable-next-line no-unused-vars
 const createOffersNearby = () => {
 
   const LOCATION_X = getRandomFloat(35.65000, 35.70000, 5);
@@ -80,7 +81,7 @@ const createOffersNearby = () => {
 
   return {
     author: {
-      avatar: 'img/avatars/user0' + getRandomInteger(1, 8) +'.png'
+      avatar: 'img/avatars/user0' + getRandomInteger(1, 8) +'.png',
     },
     offer: {
       title: OFFER_TITLE,
@@ -92,15 +93,12 @@ const createOffersNearby = () => {
       checkin: getRandomArrayElement(OFFER_CHECKIN),
       checkout: getRandomArrayElement(OFFER_CHECKOUT),
       features: getRandomArray(OFFER_FEATURES),
-      description: OFFER_DESCRIPTION
+      description: OFFER_DESCRIPTION,
+      photos: getRandomTrimArray(OFFER_PHOTOS),
     },
     location: {
       x: LOCATION_X,
-      y: LOCATION_Y
-    }
+      y: LOCATION_Y,
+    },
   };
 };
-
-const OBJ = createOffersNearby();
-
-
