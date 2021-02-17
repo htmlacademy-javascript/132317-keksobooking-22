@@ -79,4 +79,5 @@ const createOffersNearby = () => {
 };
 
 const OBJ = createOffersNearby();
+// изменения
 
