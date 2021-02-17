@@ -14,8 +14,6 @@ const OFFER_TITLE = 'Жилье вашей мечты';
 
 const OFFER_DESCRIPTION = 'Уютные апартаменты в центре города по привлекательно цене';
 
-const OFFER_PRICE = getRandomInteger(1, 100);
-
 const OFFER_TYPE = [
   'palace',
   'flat',
@@ -50,6 +48,31 @@ const OFFER_PHOTOS = [
   'http://o0.github.io/assets/images/tokyo/hotel3.jpg'
 ];
 
+const getRandomArrayElement = (elements) => {
+  return elements[getRandomInteger(0, elements.length - 1)];
+}
+
+const getRandomArraylength = (array) => {
+  return getRandomInteger(1, array.length - 1)
+};
+
+const shuffle = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  };
+
+  return array;
+};
+
+getRandomTrimArray = (array) => {
+  return array.slice(getRandomArraylength(array));
+};
+
+const getRandomArray = (array) => {
+  return getRandomTrimArray(shuffle(array));
+}
+
 const createOffersNearby = () => {
 
   const LOCATION_X = getRandomFloat(35.65000, 35.70000, 5);
@@ -62,13 +85,13 @@ const createOffersNearby = () => {
     offer: {
       title: OFFER_TITLE,
       address: `${LOCATION_X}, ${LOCATION_Y}`,
-      price: OFFER_PRICE,
-      type: '',
-      rooms: null,
-      guests: null,
-      checkin: '',
-      checkout: '',
-      features: [],
+      price: getRandomInteger(1, 100),
+      type: getRandomArrayElement(OFFER_TYPE),
+      rooms: getRandomInteger(1, 100),
+      guests: getRandomInteger(1, 100),
+      checkin: getRandomArrayElement(OFFER_CHECKIN),
+      checkout: getRandomArrayElement(OFFER_CHECKOUT),
+      features: getRandomArray(OFFER_FEATURES),
       description: OFFER_DESCRIPTION
     },
     location: {
@@ -79,5 +102,5 @@ const createOffersNearby = () => {
 };
 
 const OBJ = createOffersNearby();
-// изменения
+
 
