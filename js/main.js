@@ -53,7 +53,7 @@ const getRandomArrayElement = (elements) => {
 }
 
 const getRandomArraylength = (array) => {
-  return getRandomInteger(1, array.length - 1)
+  return getRandomInteger(0, array.length - 1)
 };
 
 const shuffle = (array) => {
