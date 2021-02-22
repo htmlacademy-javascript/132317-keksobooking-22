@@ -76,8 +76,8 @@ const getRandomArray = (array) => {
 // eslint-disable-next-line no-unused-vars
 const createOffersNearby = () => {
 
-  const LOCATION_X = getRandomFloat(35.65000, 35.70000, 5);
-  const LOCATION_Y = getRandomFloat(139.70000, 139.80000, 5);
+  const locationX = getRandomFloat(35.65000, 35.70000, 5);
+  const locationY = getRandomFloat(139.70000, 139.80000, 5);
 
   return {
     author: {
@@ -85,7 +85,7 @@ const createOffersNearby = () => {
     },
     offer: {
       title: OFFER_TITLE,
-      address: `${LOCATION_X}, ${LOCATION_Y}`,
+      address: `${locationX}, ${locationY}`,
       price: getRandomInteger(1, 100),
       type: getRandomArrayElement(OFFER_TYPE),
       rooms: getRandomInteger(1, 100),
@@ -97,8 +97,8 @@ const createOffersNearby = () => {
       photos: getRandomTrimArray(OFFER_PHOTOS),
     },
     location: {
-      x: LOCATION_X,
-      y: LOCATION_Y,
+      x: locationX,
+      y: locationY,
     },
   };
 };
